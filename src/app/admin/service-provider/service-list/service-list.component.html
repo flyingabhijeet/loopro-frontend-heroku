@@ -1,0 +1,59 @@
+<div id="wrapper">
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0">Service List</h1>
+          <button type="button" class="btn btn-primary" (click)="addService()">
+            Add Services
+          </button>
+        </div>
+
+        <div style="margin: 10px">
+            <div class="row" style="min-height: 150px">
+              <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table id="serviceList"
+                        class="table table-bordered dataTable hover order-column row-border stripe">
+                        <thead>
+                          <tr>
+                            <th scope="col">S.No.</th>
+                            <th scope="col">Service</th>
+                            <th scope="col">Service Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">What Package is Right For You?</th>
+                            <th scope="col">What's Included?</th>
+                            <th scope="col">What's Not Included?</th>
+                            <th scope="col">What You Can Expect From Us?</th>
+                            <th scope="col">What We Can Expect From You?</th>
+  
+                            <th scope="col">Edit</th>
+                            <th scope="col">Delete</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of serviceData, let i=index">
+                            <th scope="row">{{i+1}}</th>
+                            <td>{{data.superCategory_Name}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.description}}</td>
+                            <td>{{data.exception.whatPackageRightForYou}}</td>
+                            <td>{{data.exception.whatsIncluded}}</td>
+                            <td>{{data.exception.whatsNotIncluded}}</td>
+                            <td>{{data.exception.whatYouCanExpectFromUs}}</td>
+                            <td>{{data.exception.whatWeCanExpectFromYou}}</td>
+                            <td (click)="editService(data._id)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></td>
+                            <td (click)="deleteService(data._id)"><i class="fa fa-trash" aria-hidden="true"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+</div>

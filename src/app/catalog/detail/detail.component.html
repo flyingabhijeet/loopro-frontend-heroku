@@ -86,13 +86,13 @@
                     </div>
                     <!-- <p class="mjr_text">Choose Diem for your home cleaning needs! We offer affordable rates, convenient and secure on-demand services throughout 30 major cities. You <br> work too hard, seize the day with Diem!</p> -->
                 </div>
-                <div class="form_book_wrp product-single">
-                    <form class="booking-form-fields">
+                <div class="form_book_wrp product-single form">
+                    <form class="booking-form-fields" [formGroup]="detailForm">
                         <div class="row padd_area_form">
                             <div class="col-md-4 mb-4">
                                 <div class="form-group">
                                     <label>Hours</label>
-                                    <select class="form-control">
+                                    <select class="form-control" formControlName="hours">
                                         <option>1 Hour</option>
                                         <option>2 Hours</option>
                                         <option>3 Hours</option>
@@ -104,11 +104,11 @@
                         <div class="row padd_area_form pt-">
                             <div class="col-md-4 mb-4">
                                 <label class="required">Search Slots</label>
-                                <input type="date" class="form-control">
+                                <input type="date" class="form-control" formControlName="date">
                             </div>
                             <div class="col-md-4 mb-4">
-                                <label class="required">Time Slot</label>
-                                <select class="form-control">
+                                <label>Time Slot</label>
+                                <select class="form-control" formControlName="slot_data">
                                     <option>Select time slot</option>
                                     <option>07:00 AM - 07:30 AM</option>
                                     <option>07:30 AM - 08:00 AM</option>
@@ -120,23 +120,23 @@
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="required">Number of Guest</label>
-                                <input type="number" class="form-control">
+                                <input type="number" class="form-control" formControlName="guest_number">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="required">Enter any additional details about your job</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="job_detail">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="required">Please enter your job location (Street Address, City, State, Zipcode)</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="zipcode">
                             </div>
                             <div class="col-md-4 mb-4">
                                 <label class="required">Mobile Number (If we need to reach you)</label>
-                                <input type="text" class="form-control">
+                                <input type="text" class="form-control" formControlName="phone">
                             </div>
                         </div>
                         <div class="row">
-                            <button type="button" name="add" aria-label="Add to cart" class=" product-form__cart-submit" (click)="this.cartModalShow = true;">Book Now</button>
+                            <button type="submit" name="add" aria-label="Add to cart" class=" product-form__cart-submit" (click)="onSubmit()" [disabled]="detailForm?.invalid">Book Now</button>
                         </div>
                     </form>
                 </div>

@@ -6,8 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit {
-
-  services!: {id: string, title: string}[];
+  serviceData:any;
+  services!: {id: string, title: string, description: string}[];
   
   constructor() { }
 
@@ -19,16 +19,9 @@ export class ServicesComponent implements OnInit {
     this.services = [
       {
         id: '1',
-        title: 'Home Cleaning'
-      },
-      {
-        id: '2',
-        title: 'Car Driving'
-      },
-      {
-        id: '3',
-        title: 'Shipping'
-      },
+        title: 'Home Cleaning',
+        description: 'This service relates to home cleaning activies'
+      }
     ]
   }
 

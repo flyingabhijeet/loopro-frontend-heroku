@@ -1,6 +1,42 @@
-<div>
-    <h2>Your services here :--</h2>
-</div>
-<div>
-    <h3 *ngFor="let service of services">ID_{{service.id}} | {{service.title}}</h3>
+<div id="wrapper">
+    <div class="container-fluid">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <h1 class="h3 mb-0">Services</h1>
+        </div>
+
+        <div style="margin: 10px">
+            <div class="row" style="min-height: 150px">
+              <div class="col-xl-12 col-lg-12">
+                <div class="card shadow mb-4">
+                  <div class="card-body">
+                    <div class="table-responsive">
+                      <table id="serviceList"
+                        class="table table-bordered dataTable hover order-column row-border stripe">
+                        <thead>
+                          <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let service of services, let i=index">
+                            <!-- <th scope="row">{{i+1}}</th> -->
+                            <td>{{service.id}}</td>
+                            <td>{{service.title}}</td>
+                            <td>{{service.description}}</td>
+                            <td><i class="fa fa-pencil-square-o pointMe" aria-hidden="true"></i></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
 </div>

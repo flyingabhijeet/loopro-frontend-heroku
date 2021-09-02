@@ -4,6 +4,7 @@ import { CatalogComponent } from './catalog.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
 import { ViewComponent } from './view/view.component';
 import { DetailComponent } from './detail/detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -14,7 +15,9 @@ import { DetailComponent } from './detail/detail.component';
   ],
   imports: [
     CommonModule,
-    CatalogRoutingModule
+    CatalogRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CatalogModule { }

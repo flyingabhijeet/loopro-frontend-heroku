@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import "~font-awesome/css/font-awesome.css";   
+@import '~ngx-toastr/toastr.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -334,6 +335,10 @@ h2.newsletter_head{
 .product-page{
     padding-top: 55px;
 }
+.pointMe {
+    cursor: pointer;
+}
+
 @media only screen and (min-width: 750px){
     .site-footer-item-tall {
         margin-bottom: 15px;
@@ -368,6 +373,49 @@ h2.newsletter_head{
 }
 @media (max-width: 767px){
     .new-locate-menu{
-        column-count: 1;
+        column-count: 2;
+    }
+    .page-width{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .footer_newsletter .contact-form span.input-group__btn{
+        max-width: 145px;
+        right: 10px;
+        font-size: 13px;
+    }
+    .footer_newsletter .contact-form .input-group:before{
+        left: 15px;
+    }
+    .footer_newsletter .contact-form .input-group-field{
+        padding-left: 45px;
+    }
+    .footer_wrap{
+        padding: 20px 0;
+    }
+    .logo{
+        width: 130px;
+    }
+    .navbar-brand > img{
+        padding: 5px;
+    }
+    .header-icons{
+        padding-left: 0;
+        margin-bottom: 0;
+        align-items: center;
+        li{
+            button{
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+    }
+    .payment-icons{
+        padding-left: 0;
+        margin-bottom: 0;
+        li{
+            margin-bottom: 5px;
+        }
     }
 }

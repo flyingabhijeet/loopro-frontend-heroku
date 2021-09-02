@@ -1,43 +1,53 @@
-<div class="row"> 
-    <div class="col-md-12 col-md-offset-3">
-        <!-- progressbar -->
-        <form [formGroup]="basicDetails" id="msform">
-            <ul id="progressbar">
-                <li [ngClass]="step>=-1 ? 'active ' : 'inactive'">Basic Details</li>
-                <li *ngFor="let quesAns of questionsAndAnswers; let i = index" [ngClass]="step>=i ? 'active' : 'inactive'">Question #{{i+1}}</li>
-            </ul>
-            <!-- fieldsets -->
-
-            <fieldset  *ngIf="step == -1" >
-                <h2 class="fs-title">Basic Details</h2>
-                <select formControlName="serviceType">
-                    <option value="" disabled>Choose a service</option>
-                    <option *ngFor="let service of services" [ngValue]="service.value">
-                      {{ service.title }}
-                    </option>
-                </select>
-                <div *ngIf="basicDetails.controls.serviceType.errors">
-                    <div *ngIf="basic.serviceType.errors?.required">Service type is required</div>
+<!-- Content Header (Page header) -->
+<div class="content-header dashboard-header">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <h3 class="m-0">Services Provider</h3>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row"> 
+        <div class="col-md-12 col-md-offset-3">
+            <!-- progressbar -->
+            <form [formGroup]="basicDetails" id="msform">
+                <ul id="progressbar">
+                    <li [ngClass]="step>=-1 ? 'active ' : 'inactive'">Basic Details</li>
+                    <li *ngFor="let quesAns of questionsAndAnswers; let i = index" [ngClass]="step>=i ? 'active' : 'inactive'">Question #{{i+1}}</li>
+                </ul>
+                <!-- fieldsets -->
+    
+                <fieldset  *ngIf="step == -1" >
+                    <h2 class="fs-title">Basic Details</h2>
+                    <select formControlName="serviceType">
+                        <option value="" disabled>Choose a service</option>
+                        <option *ngFor="let service of services" [ngValue]="service.value">
+                        {{ service.title }}
+                        </option>
+                    </select>
+                    <div *ngIf="basicDetails.controls.serviceType.errors">
+                        <div *ngIf="basic.serviceType.errors?.required">Service type is required</div>
+                    </div>
+                    <input type="text" formControlName="title"  [ngClass]="{ 'is-invalid': basic.title.errors }" placeholder="Title"/>
+                    <div *ngIf="basicDetails.controls.title.errors">
+                        <div *ngIf="basic.title.errors?.required">Title is required</div>
+                    </div>
+                    <textarea formControlName="description" name="description" placeholder="Description" rows="8" maxlength="1000"></textarea>
+                    <div *ngIf="basicDetails.controls.description.errors">
+                    <div *ngIf="basic.description.errors?.required">Description is required</div>
                 </div>
-                <input type="text" formControlName="title"  [ngClass]="{ 'is-invalid': basic.title.errors }" placeholder="Title"/>
-                <div *ngIf="basicDetails.controls.title.errors">
-                    <div *ngIf="basic.title.errors?.required">Title is required</div>
-                </div>
-                <textarea formControlName="description" name="description" placeholder="Description" rows="8" maxlength="1000"></textarea>
-                <div *ngIf="basicDetails.controls.description.errors">
-                  <div *ngIf="basic.description.errors?.required">Description is required</div>
-               </div>
-                <input (click)="goNext()" type="button" name="next" class="next action-button" value="Next"/>
-            </fieldset>
-        </form>
-        <form *ngFor="let quesAns of questionsAndAnswers; let i = index" id="msform">
-            <fieldset  *ngIf="step == i" >
-                <h2 class="fs-title">{{quesAns.question}}</h2>
-                <ckeditor [(data)]="quesAns.answer" [config]="{ height: 300 }" (dataChange)="onChangeContent($event, i)"></ckeditor>
-                <input *ngIf="i>=0" (click)="goPrevious()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
-                <input *ngIf="i<(questionsAndAnswers.length-1)" (click)="goNext()" type="button" name="next" class="next action-button" value="Next"/>
-                <input *ngIf="i===(questionsAndAnswers.length-1)" (click)="onSubmit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
-            </fieldset>
-        </form>
+                    <input (click)="goNext()" type="button" name="next" class="next action-button" value="Next"/>
+                </fieldset>
+            </form>
+            <form *ngFor="let quesAns of questionsAndAnswers; let i = index" id="msform">
+                <fieldset  *ngIf="step == i" >
+                    <h2 class="fs-title">{{quesAns.question}}</h2>
+                    <ckeditor [(data)]="quesAns.answer" [config]="{ height: 300 }" (dataChange)="onChangeContent($event, i)"></ckeditor>
+                    <input *ngIf="i>=0" (click)="goPrevious()" type="button" name="previous" class="previous action-button-previous" value="Previous"/>
+                    <input *ngIf="i<(questionsAndAnswers.length-1)" (click)="goNext()" type="button" name="next" class="next action-button" value="Next"/>
+                    <input *ngIf="i===(questionsAndAnswers.length-1)" (click)="onSubmit()"type="submit" name="submit" class="submit action-button" value="Submit"/>
+                </fieldset>
+            </form>
+        </div>
     </div>
+    </div><!-- /.container-fluid -->
 </div>

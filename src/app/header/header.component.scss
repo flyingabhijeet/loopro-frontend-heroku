@@ -2,3 +2,18 @@
     color: #fff;
     border-color: #fff;
 }
+.search-input {
+    position: fixed;
+    background: rgba(0,0,0,0.57);
+    top: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 9999;
+}
+.input-detail {
+    background: #FFF;
+    padding: 15px;
+    input {
+        height: 50px;
+    }
+}

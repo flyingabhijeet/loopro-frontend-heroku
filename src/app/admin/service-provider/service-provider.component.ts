@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+import { ServiceListService } from 'src/app/services/service-list.service';
 
 @Component({
   selector: 'app-service-provider',
@@ -13,7 +17,7 @@ export class ServiceProviderComponent implements OnInit {
   step = -1;
   services!: {value: string, title: string}[];
 
-  constructor() { }
+  constructor(private serList:ServiceListService, private router:Router, private toastr: ToastrService) { }
   
   ngOnInit() {
     this.prepareBasicDetailForm();
@@ -97,6 +101,14 @@ export class ServiceProviderComponent implements OnInit {
         questionAndAnswers: this.questionsAndAnswers
       };
       console.log('Service provider data', serviceProvider);
+      this.serList.addService(serviceProvider)
+      .subscribe((res:any)=>{
+        console.log(res)
+        if(res && res.status===200){
+          this.toastr.success(res.massage,'Created',{progressBar:true});
+          this.router.navigateByUrl('/admin/servicelist')
+        }
+      })
     } else {
       return;
     }

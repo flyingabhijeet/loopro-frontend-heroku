@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<div id="wrapper">
+    <app-sidebar *ngIf='sidebar'></app-sidebar>
+    
+    <div id="content-wrapper" class="d-flex flex-column" >
+        <div class="content">
+            <app-header *ngIf='showHeader'></app-header>
+            <router-outlet></router-outlet>
+        </div>
+        <app-footer *ngIf='showFooter'></app-footer>
+    </div>
+</div>

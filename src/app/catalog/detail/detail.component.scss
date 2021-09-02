@@ -139,7 +139,7 @@
         line-height: 21px;
         color: #a4a3aa;
         margin-bottom: 5px;
-        &:after{
+        &.required:after{
             width: 5px;
             height: 5px;
             background: #a4a3aa;
